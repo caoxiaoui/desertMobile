@@ -3,12 +3,12 @@
     <!-- header -->
     <!-- <header class="mui-bar mui-bar-nav">
       <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-      <h1 class="mui-title">固定在头部</h1>
+      <h1 class="mui-title">固定在头部</h1>h拜拜
     </header> -->
 
     <!-- router-view  -->
       <router-view/>
-
+<div></div>
     <!-- tabbar -->
     <nav class="mui-bar mui-bar-tab">
       <router-link class="mui-tab-item" to="/" exact>
@@ -32,7 +32,6 @@
     </nav>
   </div>
 </template>
-
 <script>
 export default {
   name: "App",
