@@ -11,7 +11,7 @@
     <div class="mui-page-content">
       <div class="mui-content-padded">
         <p>
-          <img src="./../../assets/image/cbd.jpg" data-preview-src="" data-preview-group="1" />
+          <img src="~@/assets/image/cbd.jpg" data-preview-src="" data-preview-group="1" />
         </p>
 
         <!-- 跳转按钮 -->

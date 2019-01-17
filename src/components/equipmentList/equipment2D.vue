@@ -7,7 +7,7 @@
       <h1 class="mui-center mui-title">工艺流程图</h1>
     </div>
     <p>
-      <img src="./../../assets/image/pic2d.jpg" data-preview-src="" data-preview-group="1" />
+      <img src="~@/assets/image/pic2d.jpg" data-preview-src="" data-preview-group="1" />
     </p>
   </div>
 </template>

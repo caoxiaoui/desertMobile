@@ -13,7 +13,7 @@
             <div class="mui-slider-cell">
               <div class="oa-contact-cell mui-table">
                 <div class="oa-contact-avatar mui-table-cell">
-                  <img src="./../../assets/logo.png" />
+                  <img src="~@/assets/logo.png" />
                 </div>
                 <div class="oa-contact-content mui-table-cell">
                   <div class="mui-clearfix">
