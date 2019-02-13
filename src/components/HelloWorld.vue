@@ -17,6 +17,9 @@
         <span v-for="(item,index) in sliders.length" :key="index" :class="{'active':index===currentIndex}"></span>
       </div>
     </div>
+    <div>
+      
+    </div>
     <div class="mui-center">
       <button type="button" class="mui-btn" @click='eqInfo'>详细信息</button>
       <router-link to="/docList" class="mui-btn">文档列表</router-link>

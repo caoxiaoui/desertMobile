@@ -11,7 +11,17 @@ import axios from 'axios'
 import App from './App'
 import router from './router'
 
+//过滤器
+import dateFormat from './filter/commonfilter'
+Object.keys(dateFormat).forEach(key =>{
+  Vue.filter(key,dateFormat[key])
+})
+//过滤器
 
+//swiper滑块
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+Vue.use(VueAwesomeSwiper)
+//swiper滑块
 
 Vue.use(MintUI)
 Vue.prototype.axios = axios

@@ -127,49 +127,19 @@ export default {
   data() {
     return {
       info: "",
+      name: "",
+      stats: "",
+      eqCode: "",
+      eqModel: "",
+      category:"",
+      specifications:"",
       flag: true,
       eqID: "",
-      url: "http://datachn.com/ApiServlet?method=detail&id=170",
       eqList: [
         {
           id: 1,
           name: "天然气脱固撬",
           stats: "运行中",
-          eqCode: "XXXXXXXXX",
-          eqModel: "SSSSSSSSS"
-        },
-        {
-          id: 2,
-          name: "三相分离器撬",
-          stats: "运行中",
-          eqCode: "XXXXXXXXX",
-          eqModel: "SSSSSSSSS"
-        },
-        {
-          id: 3,
-          name: "增压站螺杆压缩机入口高效过滤分离撬",
-          stats: "运行中",
-          eqCode: "XXXXXXXXX",
-          eqModel: "SSSSSSSSS"
-        },
-        {
-          id: 4,
-          name: "加热节流撬",
-          stats: "运行中",
-          eqCode: "XXXXXXXXX",
-          eqModel: "SSSSSSSSS"
-        },
-        {
-          id: 5,
-          name: "稠油管式分离多相计量装置",
-          stats: "运行中",
-          eqCode: "XXXXXXXXX",
-          eqModel: "SSSSSSSSS"
-        },
-        {
-          id: 6,
-          name: "热水撬",
-          stats: "未运行",
           eqCode: "XXXXXXXXX",
           eqModel: "SSSSSSSSS"
         }
@@ -187,12 +157,18 @@ export default {
     },
     getData() {
       // this.axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      // this.axios.get("/api/ApiServlet?method=detail&id=170")
-      // this.axios.get(this.url)
-      this.axios.get(this.url).then(response => {
-        this.info = response.data;
-        // console.log(typeof(response))
-      });
+      this.axios
+        .get("http://www.datachn.com/ApiServlet?method=equipmentList&id=2")
+        .then(response => {
+          this.info = response.data.result;
+          console.log(this.info);
+          this.name = this.info.equipmentName;
+          this.stats = this.info.equipmentStatusDes;
+          this.eqCode = this.info.equipmentCode;
+          this.eqModel = this.info.equipmentModel;
+          this.category = this.info.equipmentCategory;
+          this.specifications = this.info.equipmentSpecifications;
+        });
     },
     echarts() {
       // 基于准备好的dom，初始化echarts实例
@@ -220,6 +196,7 @@ export default {
   },
   mounted() {
     this.echarts();
+    this.getData();
   }
 };
 </script>

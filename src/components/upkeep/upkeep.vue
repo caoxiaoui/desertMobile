@@ -22,7 +22,7 @@
         <tbody>
           <tr v-for="item in eqList" :key="item.id">
             <td>{{ item.name }}</td>
-            <td>{{ item.uptime }}</td>
+            <td>{{ item.uptime | dateFormat }}</td>
             <td>{{ item.upstats }}</td>
             <td>{{ item.upcontent }}</td>
             <td>{{ item.uptype }}</td>
