@@ -19,8 +19,8 @@
       </div>
     </div>
     <div class="mui-center">
-      <button type="button" class="mui-btn" @click='eqInfo'>详细信息</button>
-      <router-link to="/docList" class="mui-btn">文档列表</router-link>
+      <el-button type="primary" @click="eqInfo" size="small">详细信息</el-button>
+      <el-button type="primary" @click="docList" size="small">文档列表</el-button>
     </div>
   </div>
 </template>
@@ -72,6 +72,9 @@ export default {
     },
     eqInfo() {
       this.$router.push({ name: "eqList" });
+    },
+    docList() {
+      this.$router.push({ name: "docList" });
     },
     hBack() {
       this.$router.back();

@@ -22,9 +22,6 @@
               <el-form-item label="设备 ID">
                 <span>{{ props.row.id }}</span>
               </el-form-item>
-              <el-form-item label="店铺 ID">
-                <span>{{ props.row.shopId }}</span>
-              </el-form-item>
               <el-form-item label="设备分类">
                 <span>{{ props.row.category }}</span>
               </el-form-item>

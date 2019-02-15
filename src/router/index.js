@@ -14,8 +14,12 @@ Vue.use(Router)
 export default new Router({
   routes: [{
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'login',
+      component: login,
+      children: [{
+        path: "HelloWorld",
+        component: HelloWorld
+      }]
     },
     {
       path: '/eqList',
@@ -38,14 +42,14 @@ export default new Router({
       component: eqInfo
     },
     {
-      path:'/eq2D',
-      name:'eq2D',
-      component:eq2D
+      path: '/eq2D',
+      name: 'eq2D',
+      component: eq2D
     },
     {
-      path:'/docList',
-      name:'docList',
-      component:docList
+      path: '/docList',
+      name: 'docList',
+      component: docList
     }
   ],
   linkActiveClass: "mui-active" //覆盖默认路由高亮类
