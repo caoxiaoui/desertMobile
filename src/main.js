@@ -6,6 +6,13 @@ import 'mint-ui/lib/style.css'
 import './../static/lib/mui/css/mui.min.css'
 import echarts from 'echarts'
 
+//引入element
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+//引入element
+
+
 import axios from 'axios'
 
 import App from './App'

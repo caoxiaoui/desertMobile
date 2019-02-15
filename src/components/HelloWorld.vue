@@ -6,19 +6,17 @@
       </button>
       <h1 class="mui-center mui-title">首页</h1>
     </div>
-    <div id="slider carousel" class="carousel-wrap">
-      <transition-group tag="ul" class='slide-ul' name="list">
-        <li v-for="item in sliders" :key="item.id" v-show="item.id===currentIndex" @mouseenter="stop" @mouseleave="go">
-          <!-- {{ item.img }} -->
-          <img :src="item.img" alt="altText" />
-        </li>
-      </transition-group>
-      <div class="carousel-items">
-        <span v-for="(item,index) in sliders.length" :key="index" :class="{'active':index===currentIndex}"></span>
-      </div>
-    </div>
     <div>
-      
+      <div class="block">
+        <!-- <span class="demonstration">默认 Hover 指示器触发</span> -->
+        <el-carousel height="150px">
+          <el-carousel-item v-for="item in sliders" :key="item.id">
+            <h3>
+              <img :src="item.img" alt="">
+            </h3>
+          </el-carousel-item>
+        </el-carousel>
+      </div>
     </div>
     <div class="mui-center">
       <button type="button" class="mui-btn" @click='eqInfo'>详细信息</button>
@@ -49,10 +47,6 @@ export default {
         {
           id: 3,
           img: require("./../assets/logo.3.png")
-        },
-        {
-          id: 4,
-          img: require("./../assets/logo.4.png")
         }
       ]
     };
@@ -76,10 +70,10 @@ export default {
         this.currentIndex = 0;
       }
     },
-    eqInfo(){
-      this.$router.push({ name: "eqList"});
+    eqInfo() {
+      this.$router.push({ name: "eqList" });
     },
-    hBack(){
+    hBack() {
       this.$router.back();
     }
   },
@@ -99,64 +93,26 @@ li {
   margin: 0;
   padding: 0;
 }
-.carousel-wrap {
-  position: relative;
-  height: 220px;
-  width: 200px;
-  overflow: hidden;
-  margin: 0 auto;
-  background-color: #fff;
+
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 14px;
+  opacity: 0.75;
+  line-height: 150px;
+  margin: 0;
 }
 
-.slide-ul {
-  width: 100%;
-  height: 100%;
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
 }
-li {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
-img {
-  width: 200px;
-  height: 200px;
-}
-.carousel-items {
-  position: absolute;
-  z-index: 10;
-  top: 205px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 0;
-}
-.carousel-items span {
+.el-carousel__container .el-carousel__indicator {
   display: inline-block;
-  height: 6px;
-  width: 30px;
-  margin: 0 3px;
-  background-color: #b2b2b2;
+  background-color: transparent;
+  padding: 12px 2px;
   cursor: pointer;
-  border-radius: 10px;
-}
-.carousel-items .active {
-  background-color: #a50b0b;
-}
-.list-enter-to {
-  transition: all 1s ease;
-  transform: translateX(0);
-}
-
-.list-leave-active {
-  transition: all 1s ease;
-  transform: translateX(-100%);
-}
-
-.list-enter {
-  transform: translateX(100%);
-}
-
-.list-leave {
-  transform: translateX(0);
 }
 </style>

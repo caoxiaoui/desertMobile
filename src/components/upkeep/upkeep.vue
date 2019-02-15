@@ -7,28 +7,43 @@
       </button>
       <h1 class="mui-center mui-title">保养相关</h1>
     </div>
-    
+
     <div class="upkeep-tab">
-      <table>
-        <thead>
-          <tr>
-            <th>设备名称</th>
-            <th>计划保养日期</th>
-            <th>计划状态</th>
-            <th>计划内容</th>
-            <th>保养类型</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in eqList" :key="item.id">
-            <td>{{ item.name }}</td>
-            <td>{{ item.uptime | dateFormat }}</td>
-            <td>{{ item.upstats }}</td>
-            <td>{{ item.upcontent }}</td>
-            <td>{{ item.uptype }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <el-table :data="tableData5" height="auto" border style="width: 100%">
+        <el-table-column type="expand">
+          <template slot-scope="props">
+            <el-form label-position="left" inline class="demo-table-expand">
+              <el-form-item label="设备名称">
+                <span>{{ props.row.name }}</span>
+              </el-form-item>
+              <el-form-item label="所属单位">
+                <span>{{ props.row.shop }}</span>
+              </el-form-item>
+              <el-form-item label="设备 ID">
+                <span>{{ props.row.id }}</span>
+              </el-form-item>
+              <el-form-item label="店铺 ID">
+                <span>{{ props.row.shopId }}</span>
+              </el-form-item>
+              <el-form-item label="设备分类">
+                <span>{{ props.row.category }}</span>
+              </el-form-item>
+              <el-form-item label="安装地址">
+                <span>{{ props.row.address }}</span>
+              </el-form-item>
+              <el-form-item label="设备描述">
+                <span>{{ props.row.desc }}</span>
+              </el-form-item>
+            </el-form>
+          </template>
+        </el-table-column>
+        <el-table-column label="日期" prop="date">
+        </el-table-column>
+        <el-table-column label="设备名称" prop="name">
+        </el-table-column>
+        <el-table-column label="描述" prop="desc">
+        </el-table-column>
+      </el-table>
     </div>
   </div>
 </template>
@@ -45,7 +60,7 @@ export default {
           uptime: new Date(),
           upstats: "保养中",
           upcontent: "SSSSSSSSS",
-          uptype:"日常保养"
+          uptype: "日常保养"
         },
         {
           id: 2,
@@ -54,7 +69,7 @@ export default {
           uptime: new Date(),
           upstats: "保养中",
           upcontent: "SSSSSSSSS",
-          uptype:"日常保养"
+          uptype: "日常保养"
         },
         {
           id: 3,
@@ -63,7 +78,7 @@ export default {
           uptime: new Date(),
           upstats: "保养中",
           upcontent: "SSSSSSSSS",
-          uptype:"日常保养"
+          uptype: "日常保养"
         },
         {
           id: 4,
@@ -72,7 +87,7 @@ export default {
           uptime: new Date(),
           upstats: "保养中",
           upcontent: "SSSSSSSSS",
-          uptype:"日常保养"
+          uptype: "日常保养"
         },
         {
           id: 5,
@@ -81,7 +96,7 @@ export default {
           uptime: new Date(),
           upstats: "保养中",
           upcontent: "SSSSSSSSS",
-          uptype:"日常保养"
+          uptype: "日常保养"
         },
         {
           id: 6,
@@ -90,17 +105,51 @@ export default {
           uptime: new Date(),
           upstats: "保养中",
           upcontent: "SSSSSSSSS",
-          uptype:"日常保养"
+          uptype: "日常保养"
+        }
+      ],
+      tableData5: [
+        {
+          id: "12987122",
+          name: "增压站螺杆压缩机入口高效过滤分离撬",
+          category: "分离多相计量装置",
+          desc: "保养中",
+          address: "上海市普陀区真北路",
+          shop: "北京大漠石油技术有限公司",
+          shopId: "10333"
+        },
+        {
+          id: "12987123",
+          name: "增压站螺杆压缩机入口高效过滤分离撬",
+          category: "分离多相计量装置",
+          desc: "保养中",
+          address: "上海市普陀区真北路",
+          shop: "北京大漠石油技术有限公司",
+          shopId: "10333"
+        },
+        {
+          id: "12987125",
+          name: "增压站螺杆压缩机入口高效过滤分离撬",
+          category: "分离多相计量装置",
+          desc: "保养中",
+          address: "上海市普陀区真北路",
+          shop: "北京大漠石油技术有限公司",
+          shopId: "10333"
+        },
+        {
+          id: "12987126",
+          name: "增压站螺杆压缩机入口高效过滤分离撬",
+          category: "分离多相计量装置",
+          desc: "保养中",
+          address: "上海市普陀区真北路",
+          shop: "北京大漠石油技术有限公司",
+          shopId: "10333"
         }
       ]
     };
   },
-  methods: {
-   
-  },
-  created() {
-    
-  }
+  methods: {},
+  created() {}
 };
 </script>
 <style scoped>
@@ -109,5 +158,17 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.demo-table-expand {
+  font-size: 0;
+}
+.demo-table-expand label {
+  width: 90px;
+  color: #99a9bf;
+}
+.demo-table-expand .el-form-item {
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 50%;
 }
 </style>
