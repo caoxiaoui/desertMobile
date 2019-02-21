@@ -95,7 +95,7 @@ export default {
     eqmore(id) {
       //根据设备的 id 渲染信息
       console.log("设备列表页面id："+id);
-      this.$router.push({ name: "eqInfo", params: { id: id } });
+      this.$router.push({ path: "eqInfo", params: { id: id } });
     },
     hBack(){
       this.$router.back()

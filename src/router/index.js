@@ -7,6 +7,7 @@ import eqInfo from '@/components/equipmentList/equipmentInfo'
 import eq2D from '@/components/equipmentList/equipment2D'
 import docList from '@/components/equipmentList/equipmentDocList'
 import setting from '@/components/setting/setting'
+import editInfo from '@/components/setting/editInfo'
 import upkeep from '@/components/upkeep/upkeep'
 
 Vue.use(Router)
@@ -14,42 +15,47 @@ Vue.use(Router)
 export default new Router({
   routes: [{
       path: '/',
-      name: 'login',
-      component: login,
-      children: [{
-        path: "HelloWorld",
-        component: HelloWorld
-      }]
+      name: '登陆页',
+      component: login
+    },
+    {
+      path: "/HelloWorld",
+      component: HelloWorld
     },
     {
       path: '/eqList',
-      name: 'eqList',
+      name: '设备列表',
       component: eqList
     },
     {
       path: '/setting',
-      name: 'setting',
+      name: '设置',
       component: setting
     },
     {
       path: "/upkeep",
-      name: "upkeep",
+      name: "保养",
       component: upkeep
     },
     {
       path: '/eqInfo',
-      name: 'eqInfo',
+      name: '设备信息',
       component: eqInfo
     },
     {
       path: '/eq2D',
-      name: 'eq2D',
+      name: '工艺流程图',
       component: eq2D
     },
     {
       path: '/docList',
-      name: 'docList',
+      name: '文档列表',
       component: docList
+    },
+    {
+      path: '/editInfo',
+      name: '个人中心',
+      component: editInfo
     }
   ],
   linkActiveClass: "mui-active" //覆盖默认路由高亮类

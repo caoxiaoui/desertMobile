@@ -17,14 +17,11 @@
         <!-- 跳转按钮 -->
         <div>
 
-          <router-link to='/eq2D'>
-            <mt-button size="small">工艺流程图</mt-button>
+          <mt-button size="small" @click="toeq2D">工艺流程图</mt-button>
 
-          </router-link>
-
-          <mt-button size="small">文档资料</mt-button>
-          <mt-button size="small">日报数据</mt-button>
-          <mt-button size="small">保养计划</mt-button>
+          <mt-button size="small" @click="todocList">文档资料</mt-button>
+          <!-- <mt-button size="small">日报数据</mt-button> -->
+          <mt-button size="small" @click="toupkeep">保养计划</mt-button>
         </div>
         <!-- 跳转按钮 -->
 
@@ -131,8 +128,8 @@ export default {
       stats: "",
       eqCode: "",
       eqModel: "",
-      category:"",
-      specifications:"",
+      category: "",
+      specifications: "",
       flag: true,
       eqID: "",
       eqList: [
@@ -151,6 +148,15 @@ export default {
       this.eqID = this.$route.params.id;
       console.log("详细信息页面id：" + this.eqID);
       return this.eqID;
+    },
+    toeq2D() {
+      this.$router.push({ path: "eq2D" });
+    },
+    todocList() {
+      this.$router.push({ path: "docList" });
+    },
+    toupkeep() {
+      this.$router.push({ path: "upkeep" });
     },
     hBack() {
       this.$router.back();

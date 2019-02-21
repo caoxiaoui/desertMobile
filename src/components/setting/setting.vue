@@ -3,7 +3,7 @@
     <!-- <h1>设置页面</h1> -->
     <div id="account" class="mui-page">
       <div class="mui-navbar-inner mui-bar mui-bar-nav">
-        <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+        <button type="button" @click="hBack" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
           <span class="mui-icon mui-icon-left-nav"></span>
         </button>
         <h1 class="mui-center mui-title">账号与安全</h1>
@@ -44,10 +44,10 @@
               </li>
             </ul>
             <ul class="mui-table-view">
-							<li class="mui-table-view-cell" style="text-align: center;">
-								<a>退出登录</a>
-							</li>
-						</ul>
+              <li class="mui-table-view-cell" style="text-align: center;">
+                <a @click="open">退出登录</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -61,6 +61,33 @@ export default {
     return {
       set: "value"
     };
+  },
+  methods: {
+    hBack() {
+      this.$router.back();
+    },
+    // editInfo() {
+    //   this.$router.push({ path: "editInfo" });
+    // },
+    open() {
+        this.$confirm('即将退出, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+          center: true
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '退出成功!'
+          });
+          this.$router.push({path:"/"})
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消退出'
+          });
+        });
+      }
   }
 };
 </script>

@@ -2,33 +2,33 @@
   <div class="upkeep">
     <!-- <h1>保养相关</h1> -->
     <div class="mui-navbar-inner mui-bar mui-bar-nav">
-      <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+      <button type="button" @click="hBack" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
         <span class="mui-icon mui-icon-left-nav"></span>
       </button>
       <h1 class="mui-center mui-title">保养相关</h1>
     </div>
 
     <div class="upkeep-tab">
-      <el-table :data="tableData5" height="auto" border style="width: 100%">
+      <el-table :data="tableData5" border style="width: 100%">
         <el-table-column type="expand">
           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="设备名称">
+              <el-form-item label="设备名称：">
                 <span>{{ props.row.name }}</span>
               </el-form-item>
-              <el-form-item label="所属单位">
+              <el-form-item label="所属单位：">
                 <span>{{ props.row.shop }}</span>
               </el-form-item>
-              <el-form-item label="设备 ID">
+              <el-form-item label="设备 ID： ">
                 <span>{{ props.row.id }}</span>
               </el-form-item>
-              <el-form-item label="设备分类">
+              <el-form-item label="设备分类：">
                 <span>{{ props.row.category }}</span>
               </el-form-item>
-              <el-form-item label="安装地址">
+              <el-form-item label="安装地址：">
                 <span>{{ props.row.address }}</span>
               </el-form-item>
-              <el-form-item label="设备描述">
+              <el-form-item label="设备描述：">
                 <span>{{ props.row.desc }}</span>
               </el-form-item>
             </el-form>
@@ -145,7 +145,11 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    hBack() {
+      this.$router.back();
+    },
+  },
   created() {}
 };
 </script>

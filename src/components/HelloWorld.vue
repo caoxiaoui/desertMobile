@@ -71,10 +71,10 @@ export default {
       }
     },
     eqInfo() {
-      this.$router.push({ name: "eqList" });
+      this.$router.push({ path: "eqList" });
     },
     docList() {
-      this.$router.push({ name: "docList" });
+      this.$router.push({ path: "docList" });
     },
     hBack() {
       this.$router.back();
