@@ -1,11 +1,5 @@
 <template>
   <div class="docList">
-    <div class="mui-navbar-inner mui-bar mui-bar-nav">
-      <button @click="hBack" type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-        <span class="mui-icon mui-icon-left-nav"></span>
-      </button>
-      <h1 class="mui-center mui-title">文档列表</h1>
-    </div>
 
     <div class="seach">
       <input v-model="value" />
@@ -46,9 +40,6 @@ export default {
     };
   },
   methods: {
-    hBack() {
-      this.$router.back();
-    }
   }
 };
 </script>

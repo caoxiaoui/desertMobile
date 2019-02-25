@@ -1,14 +1,14 @@
 <template>
   <div class="login">
-    <el-form class="demo-ruleForm">
+    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on">
       <el-form-item>
-        <el-input v-model="name" placeholder="请输入用户名"></el-input>
+        <el-input v-model="loginForm.username" placeholder="请输入用户名"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input type="password" v-model="pass" placeholder="请输入密码"></el-input>
+        <el-input type="password" v-model="loginForm.password" placeholder="请输入密码"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm" class="login-btn">登陆</el-button>
+        <el-button type="primary" @click.native.prevent="submitForm" class="login-btn">登陆</el-button>
         <!-- <el-button>重置</el-button> -->
       </el-form-item>
     </el-form>
@@ -21,11 +21,39 @@
 export default {
   name: "login",
   data() {
+    const validateUsername = (rule, value, callback) => {
+      if (!isvalidUsername(value)) {
+        callback(new Error('Please enter the correct user name'))
+      } else {
+        callback()
+      }
+    }
+    const validatePassword = (rule, value, callback) => {
+      if (value.length < 6) {
+        callback(new Error('The password can not be less than 6 digits'))
+      } else {
+        callback()
+      }
+    }
     return {
-      name: "",
-      pass: "",
-      logURL: "" //
+      loginForm: {
+        username: 'admin',
+        password: '1111111'
+      },
+      loginRules: {
+        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+      },
+      redirect: undefined //
     };
+  },
+  watch: {
+    $route: {
+      handler: function(route) {
+        this.redirect = route.query && route.query.redirect
+      },
+      immediate: true
+    }
   },
   methods: {
     submitForm() {
@@ -34,8 +62,24 @@ export default {
       //   console.log(res);
       // })
 
-      this.$router.push({ path: "HelloWorld" });
+      this.$router.push({ path: this.redirect || 'HelloWorld' });
       // this.redirdect
+
+
+      // this.$refs.loginForm.validate(valid => {
+      //   if (valid) {
+      //     this.loading = true
+      //     this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
+      //       this.loading = false
+      //       this.$router.push({ path: this.redirect || '/' })
+      //     }).catch(() => {
+      //       this.loading = false
+      //     })
+      //   } else {
+      //     console.log('error submit!!')
+      //     return false
+      //   }
+      // })
     }
   }
 };
@@ -46,7 +90,7 @@ export default {
 .login-btn {
   width: 100%;
 }
-.demo-ruleForm {
+.login-form {
   width: 400px;
   margin: 200px auto;
 }

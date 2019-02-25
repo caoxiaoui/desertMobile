@@ -1,13 +1,6 @@
 <template>
   <div class="eqInfo">
     <!-- <router-view/> -->
-    <div class="mui-navbar-inner mui-bar mui-bar-nav">
-      <button @click="hBack" type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-        <span class="mui-icon mui-icon-left-nav"></span>
-      </button>
-      <h1 class="mui-center mui-title">设备详细信息</h1>
-    </div>
-
     <div class="mui-page-content">
       <div class="mui-content-padded">
         <p>
@@ -157,9 +150,6 @@ export default {
     },
     toupkeep() {
       this.$router.push({ path: "upkeep" });
-    },
-    hBack() {
-      this.$router.back();
     },
     getData() {
       // this.axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")

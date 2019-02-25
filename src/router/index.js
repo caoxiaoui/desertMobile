@@ -16,7 +16,8 @@ export default new Router({
   routes: [{
       path: '/',
       name: '登陆页',
-      component: login
+      component: login,
+      // redirect:'/HelloWorld'
     },
     {
       path: "/HelloWorld",

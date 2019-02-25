@@ -2,13 +2,6 @@
   <div class="setting">
     <!-- <h1>设置页面</h1> -->
     <div id="account" class="mui-page">
-      <div class="mui-navbar-inner mui-bar mui-bar-nav">
-        <button type="button" @click="hBack" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-          <span class="mui-icon mui-icon-left-nav"></span>
-        </button>
-        <h1 class="mui-center mui-title">账号与安全</h1>
-      </div>
-
       <div class="mui-page-content">
         <div class="mui-scroll-wrapper">
           <div class="mui-scroll">
@@ -47,6 +40,9 @@
               <li class="mui-table-view-cell" style="text-align: center;">
                 <a @click="open">退出登录</a>
               </li>
+              <!-- <li class="mui-table-view-cell" style="text-align: center;">
+                <span>{{loginForm.username}}</span>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -59,13 +55,13 @@ export default {
   name: "setting",
   data() {
     return {
-      set: "value"
+      loginForm: {
+        username: 'admin',
+        password: '1111111'
+      },
     };
   },
   methods: {
-    hBack() {
-      this.$router.back();
-    },
     // editInfo() {
     //   this.$router.push({ path: "editInfo" });
     // },

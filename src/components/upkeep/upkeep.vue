@@ -1,13 +1,6 @@
 <template>
   <div class="upkeep">
     <!-- <h1>保养相关</h1> -->
-    <div class="mui-navbar-inner mui-bar mui-bar-nav">
-      <button type="button" @click="hBack" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-        <span class="mui-icon mui-icon-left-nav"></span>
-      </button>
-      <h1 class="mui-center mui-title">保养相关</h1>
-    </div>
-
     <div class="upkeep-tab">
       <el-table :data="tableData5" border style="width: 100%">
         <el-table-column type="expand">
@@ -146,9 +139,6 @@ export default {
     };
   },
   methods: {
-    hBack() {
-      this.$router.back();
-    },
   },
   created() {}
 };

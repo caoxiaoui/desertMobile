@@ -1,12 +1,6 @@
 <template>
   <div class="eqList">
     <div class="mui-content">
-      <div class="mui-navbar-inner mui-bar mui-bar-nav">
-        <button type="button" @click="hBack" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-          <span class="mui-icon mui-icon-left-nav"></span>
-        </button>
-        <h1 class="mui-center mui-title">设备列表</h1>
-      </div>
       <div id="tabbar-with-contact" class="mui-control-content mui-active">
         <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed" v-for="item in eqList" :key="item.id">
           <li class="mui-table-view-cell">
@@ -97,9 +91,6 @@ export default {
       console.log("设备列表页面id："+id);
       this.$router.push({ path: "eqInfo", params: { id: id } });
     },
-    hBack(){
-      this.$router.back()
-    }
   }
 };
 </script>
