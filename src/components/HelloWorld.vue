@@ -10,7 +10,7 @@
                 <el-submenu index="1">
                   <template slot="title">
                     <i class="el-icon-location"></i>
-                    <span>导航一</span>
+                    <span>设备列表</span>
                   </template>
                   <el-menu-item-group>
                     <template slot="title">分组一</template>
@@ -25,17 +25,31 @@
                     <el-menu-item index="1-4-1">选项1</el-menu-item>
                   </el-submenu>
                 </el-submenu>
-                <el-menu-item index="2">
-                  <i class="el-icon-menu"></i>
-                  <span slot="title">导航二</span>
-                </el-menu-item>
-                <el-menu-item index="3" disabled>
+                <el-submenu index="2">
+                  <template slot="title">
+                    <i class="el-icon-menu"></i>
+                    <span slot="title">文档列表</span>
+                  </template>
+                  <el-menu-item-group>
+                    <template slot="title">分组一</template>
+                    <el-menu-item index="2-1">选项1</el-menu-item>
+                    <el-menu-item index="2-2">选项2</el-menu-item>
+                  </el-menu-item-group>
+                  <el-menu-item-group title="分组2">
+                    <el-menu-item index="2-3">选项3</el-menu-item>
+                  </el-menu-item-group>
+                  <el-submenu index="2-4">
+                    <template slot="title">选项4</template>
+                    <el-menu-item index="2-4-1">选项1</el-menu-item>
+                  </el-submenu>
+                </el-submenu>
+                <el-menu-item index="3">
                   <i class="el-icon-document"></i>
-                  <span slot="title">导航三</span>
+                  <span slot="title">保养信息</span>
                 </el-menu-item>
-                <el-menu-item index="4">
+                <el-menu-item index="4" @click="setting">
                   <i class="el-icon-setting"></i>
-                  <span slot="title">导航四</span>
+                  <span slot="title">个人中心</span>
                 </el-menu-item>
               </el-menu>
             </el-col>
@@ -58,6 +72,7 @@
             <el-button type="primary" @click="eqInfo" size="small">详细信息</el-button>
             <el-button type="primary" @click="docList" size="small">文档列表</el-button>
           </div>
+          <eqinfo></eqinfo>
         </el-main>
       </el-container>
     </el-container>
@@ -65,12 +80,22 @@
   </div>
 </template>
 <script>
+import eqinfo from "./myComponents/eqInfo";
+import setting from "./setting/setting";
+
 export default {
   name: "upkeep",
+  components: {
+    eqinfo,
+    setting
+  },
   data() {
     return {
       currentIndex: 0,
+      currentTab: "eqinfo",
       timer: "",
+      com: ["eqinfo", "setting"],
+      set: false,
       sliders: [
         {
           id: 0,
@@ -121,6 +146,9 @@ export default {
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
+    },
+    setting() {
+      this.set = !this.set;
     }
   },
   created() {

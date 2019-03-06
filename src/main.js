@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
-import './../static/lib/mui/css/mui.min.css'
+// import './../static/lib/mui/css/mui.min.css'
 import echarts from 'echarts'
 
 //引入element

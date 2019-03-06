@@ -56,9 +56,9 @@ export default {
   data() {
     return {
       loginForm: {
-        username: 'admin',
-        password: '1111111'
-      },
+        username: "admin",
+        password: "1111111"
+      }
     };
   },
   methods: {
@@ -66,24 +66,26 @@ export default {
     //   this.$router.push({ path: "editInfo" });
     // },
     open() {
-        this.$confirm('即将退出, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning',
-          center: true
-        }).then(() => {
+      this.$confirm("即将退出, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+        center: true
+      })
+        .then(() => {
           this.$message({
-            type: 'success',
-            message: '退出成功!'
+            type: "success",
+            message: "退出成功!"
           });
-          this.$router.push({path:"/"})
-        }).catch(() => {
+          this.$router.push({ path: "/" });
+        })
+        .catch(() => {
           this.$message({
-            type: 'info',
-            message: '已取消退出'
+            type: "info",
+            message: "已取消退出"
           });
         });
-      }
+    }
   }
 };
 </script>
@@ -97,7 +99,7 @@ body {
 .mui-pages,
 .mui-page,
 .mui-page-content {
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   right: 0;
   top: 0;
@@ -205,8 +207,19 @@ body {
 }
 .mui-table-view {
   margin-top: 20px;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  background-color: #fff;
 }
-
+.mui-table-view-cell {
+  position: relative;
+  overflow: hidden;
+  padding: 11px 15px;
+  -webkit-touch-callout: none;
+}
 .mui-table-view span.mui-pull-right {
   color: #999;
 }
@@ -265,6 +278,46 @@ body {
 }
 
 /*问题反馈在setting页面单独的css==end*/
+
+.mui-table-view-cell > a:not(.mui-btn) {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: -11px -15px;
+  padding: inherit;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: inherit;
+}
+.mui-pull-right {
+  float: right;
+}
+.mui-table-view:after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #c8c7cc;
+}
+.mui-table-view-cell:last-child:after,
+.mui-table-view-cell:last-child:before {
+  height: 0;
+}
+.mui-table-view-cell:after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 15px;
+  height: 1px;
+  content: "";
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #c8c7cc;
+}
 </style>
 
 

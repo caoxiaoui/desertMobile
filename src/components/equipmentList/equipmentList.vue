@@ -34,10 +34,12 @@
   </div>
 </template>
 <script>
+import data from './eqList.json'//引入本地json文件
 export default {
   name: "eqList",
   data() {
     return {
+      data:data.result,//调用引入的本地json文件
       flag:false,
       eqList: [
         {
@@ -91,6 +93,25 @@ export default {
       console.log("设备列表页面id："+id);
       this.$router.push({ path: "eqInfo", params: { id: id } });
     },
+    // getData() {
+    //   // this.axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+    //   this.axios
+    //     .get(this.data)
+    //     .then(response => {
+    //       this.info = response.data.result;
+    //       console.log(this.info);
+    //       this.name = this.info.equipmentName;
+    //       this.stats = this.info.equipmentStatusDes;
+    //       this.eqCode = this.info.equipmentCode;
+    //       this.eqModel = this.info.equipmentModel;
+    //       this.category = this.info.equipmentCategory;
+    //       this.specifications = this.info.equipmentSpecifications;
+    //     });
+    // },
+  },
+  mounted(){
+    console.log(this.data);
+    // this.getData();
   }
 };
 </script>

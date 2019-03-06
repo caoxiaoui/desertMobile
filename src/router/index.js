@@ -6,7 +6,7 @@ import eqList from '@/components/equipmentList/equipmentList'
 import eqInfo from '@/components/equipmentList/equipmentInfo'
 import eq2D from '@/components/equipmentList/equipment2D'
 import docList from '@/components/equipmentList/equipmentDocList'
-import setting from '@/components/setting/setting'
+// import setting from '@/components/setting/setting'
 import editInfo from '@/components/setting/editInfo'
 import upkeep from '@/components/upkeep/upkeep'
 
@@ -21,18 +21,19 @@ export default new Router({
     },
     {
       path: "/HelloWorld",
-      component: HelloWorld
+      // component: HelloWorld,
+      component:()=>import("./../components/HelloWorld")
     },
     {
       path: '/eqList',
       name: '设备列表',
       component: eqList
     },
-    {
-      path: '/setting',
-      name: '设置',
-      component: setting
-    },
+    // {
+    //   path: '/setting',
+    //   name: '设置',
+    //   component: setting
+    // },
     {
       path: "/upkeep",
       name: "保养",
