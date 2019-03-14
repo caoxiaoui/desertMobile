@@ -1,31 +1,30 @@
 <template>
   <div class="eqList">
-    <div class="mui-content">
-      <div id="tabbar-with-contact" class="mui-control-content mui-active">
-        <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed" v-for="item in eqList" :key="item.id">
-          <li class="mui-table-view-cell">
-            <div class="mui-slider-cell">
-              <div class="oa-contact-cell mui-table">
-                <div class="oa-contact-avatar mui-table-cell">
+    <div class="content">
+      <div id="tabbar-with-contact" class="control-content active">
+        <ul class="table-view table-view-striped table-view-condensed" v-for="item in data" :key="item.id">
+          <li class="table-view-cell">
+            <div class="slider-cell">
+              <div class="oa-contact-cell table">
+                <div class="oa-contact-avatar table-cell">
                   <img src="~@/assets/logo.png" />
                 </div>
-                <div class="oa-contact-content mui-table-cell">
-                  <div class="mui-clearfix">
-                    <h4 class="oa-contact-name"><a @click.prevent="eqmore(item.id)">{{item.name}}</a></h4>
+                <div class="oa-contact-content table-cell">
+                  <div class="clearfix">
+                    <h4 class="oa-contact-name">
+                      <a @click.prevent="eqmore(item.equipmentId)">{{item.equipmentName}}</a>
+                    </h4>
                   </div>
-                  <p class="mui-h6">
-                    <span class="oa-contact-position mui-h6">型号:</span>
-                    <span class="oa-contact-position mui-h6">{{item.eqCode}}</span>
+                  <p class="h6">
+                    <span class="oa-contact-position h6">编码:</span>
+                    <span class="oa-contact-position h6">{{item.equipmentCode}}</span>
                   </p>
-                  <p class="mui-h6">
-                    <span class="oa-contact-position mui-h6">编号:</span>
-                    <span class="oa-contact-position mui-h6">{{item.eqModel}}</span>
+                  <p class="h6">
+                    <span class="oa-contact-position h6">型号:</span>
+                    <span class="oa-contact-position h6">{{item.equipmentModel}}</span>
                   </p>
                 </div>
               </div>
-            </div>
-            <div class="test" v-if="flag">
-              <h1>sssssssssssssssssssssssss</h1>
             </div>
           </li>
         </ul>
@@ -34,13 +33,12 @@
   </div>
 </template>
 <script>
-import data from './eqList.json'//引入本地json文件
+import data1 from "./eqList.json"; //引入本地json文件
 export default {
   name: "eqList",
   data() {
     return {
-      data:data.result,//调用引入的本地json文件
-      flag:false,
+      data: data1.result, //调用引入的本地json文件
       eqList: [
         {
           id: 1,
@@ -90,32 +88,37 @@ export default {
   methods: {
     eqmore(id) {
       //根据设备的 id 渲染信息
-      console.log("设备列表页面id："+id);
+      console.log("设备列表页面id：" + id);
       this.$router.push({ path: "eqInfo", params: { id: id } });
     },
-    // getData() {
-    //   // this.axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
-    //   this.axios
-    //     .get(this.data)
-    //     .then(response => {
-    //       this.info = response.data.result;
-    //       console.log(this.info);
-    //       this.name = this.info.equipmentName;
-    //       this.stats = this.info.equipmentStatusDes;
-    //       this.eqCode = this.info.equipmentCode;
-    //       this.eqModel = this.info.equipmentModel;
-    //       this.category = this.info.equipmentCategory;
-    //       this.specifications = this.info.equipmentSpecifications;
-    //     });
-    // },
+    getData() {
+      // this.axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      // this.axios.get(this.data).then(response => {
+      //   this.info = response.data.result;
+      //   console.log(this.info);
+      //   this.name = this.info.equipmentName;
+      //   this.stats = this.info.equipmentStatusDes;
+      //   this.eqCode = this.info.equipmentCode;
+      //   this.eqModel = this.info.equipmentModel;
+      //   this.category = this.info.equipmentCategory;
+      //   this.specifications = this.info.equipmentSpecifications;
+      // });
+    }
   },
-  mounted(){
+  mounted() {
     console.log(this.data);
-    // this.getData();
+    this.getData();
   }
 };
 </script>
 <style scoped>
+ul,
+li {
+  list-style: none;
+}
+div {
+  display: inline;
+}
 .eqList {
   text-align: left;
 }
@@ -125,14 +128,22 @@ export default {
   font-size: 15px;
 }
 
-.oa-contact-cell.mui-table .mui-table-cell {
+.table-view-cell {
+  -webkit-box-shadow: 0px 1px 4px #afafaf;
+  box-shadow: 0px 1px 4px #afafaf;
+}
+.oa-contact-cell.table .table-cell {
   padding: 11px 0;
   vertical-align: middle;
+  display: flex;
+  flex-direction: column;
 }
 
 .oa-contact-cell {
   position: relative;
   margin: -11px 0;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .oa-contact-avatar {
@@ -147,11 +158,17 @@ export default {
   width: 100%;
 }
 .oa-contact-name {
+  margin: 0;
   margin-right: 20px;
 }
-.oa-contact-name,
-oa-contact-position {
-  float: left;
+.oa-contact-name a {
+  color: rgb(24, 79, 197);
+}
+.h6 {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #6d6d72;
 }
 </style>
 

@@ -47,6 +47,7 @@ export default {
       redirect: undefined //
     };
   },
+  components: {},
   watch: {
     $route: {
       handler: function(route) {

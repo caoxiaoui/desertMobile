@@ -6,7 +6,7 @@ import eqList from '@/components/equipmentList/equipmentList'
 import eqInfo from '@/components/equipmentList/equipmentInfo'
 import eq2D from '@/components/equipmentList/equipment2D'
 import docList from '@/components/equipmentList/equipmentDocList'
-// import setting from '@/components/setting/setting'
+import setting from '@/components/setting/setting'
 import editInfo from '@/components/setting/editInfo'
 import upkeep from '@/components/upkeep/upkeep'
 
@@ -21,44 +21,88 @@ export default new Router({
     },
     {
       path: "/HelloWorld",
-      // component: HelloWorld,
-      component:()=>import("./../components/HelloWorld")
+      name: "HelloWorld",
+      component: HelloWorld,
+      children: [
+        {
+          path: '/',
+          name: 'HelloWorld',
+          component: HelloWorld
+        },
+        {
+          path: '/eqlist',
+          name: 'eqList',
+          component: eqList,
+          children: [
+            {
+              path: '/',
+              name: 'eqList',
+              component: eqList
+            },
+            {
+            path: '/eqinfo',
+            name: 'eqInfo',
+            component: eqInfo
+          }
+        ]
+        },
+        {
+          path: '/doclist',
+          name: 'docList',
+          component: docList
+        },
+        {
+          path: '/upkeep',
+          name: 'upkeep',
+          component: upkeep
+        },
+        {
+          path: '/setting',
+          name: 'setting',
+          component: setting,
+          children: [{
+            path: '/editInfo',
+            name: 'editInfo',
+            component: editInfo
+          }]
+        },
+      ]
     },
-    {
-      path: '/eqList',
-      name: '设备列表',
-      component: eqList
-    },
+    // {
+    //   path: '/eqList',
+    //   name: '设备列表',
+    //   component: eqList
+    // },
     // {
     //   path: '/setting',
     //   name: '设置',
     //   component: setting
     // },
-    {
-      path: "/upkeep",
-      name: "保养",
-      component: upkeep
-    },
-    {
-      path: '/eqInfo',
-      name: '设备信息',
-      component: eqInfo
-    },
-    {
-      path: '/eq2D',
-      name: '工艺流程图',
-      component: eq2D
-    },
-    {
-      path: '/docList',
-      name: '文档列表',
-      component: docList
-    },
-    {
-      path: '/editInfo',
-      name: '个人中心',
-      component: editInfo
-    }
+    // {
+    //   path: "/upkeep",
+    //   name: "保养",
+    //   component: upkeep
+    // },
+    // {
+    //   path: '/eqInfo',
+    //   name: '设备信息',
+    //   component: eqInfo
+    // },
+    // {
+    //   path: '/eq2D',
+    //   name: '工艺流程图',
+    //   component: eq2D
+    // },
+    // {
+    //   path: '/docList',
+    //   name: '文档列表',
+    //   component: docList
+    // },
+    // {
+    //   path: '/editInfo',
+    //   name: '个人中心',
+    //   component: editInfo
+    // }
   ],
-  linkActiveClass: "mui-active" //覆盖默认路由高亮类
+  //linkActiveClass: "mui-active" //覆盖默认路由高亮类
 })

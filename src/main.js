@@ -30,6 +30,12 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper)
 //swiper滑块
 
+// 路由跳转
+Vue.prototype.$goRoute = function (index) {
+  this.$router.push(index)
+}
+
+
 Vue.use(MintUI)
 Vue.prototype.axios = axios
 Vue.prototype.$echarts = echarts
@@ -39,6 +45,8 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
+  // components: { App },
+  // template: '<App/>'
+  
+  render: h => h(App)
 })

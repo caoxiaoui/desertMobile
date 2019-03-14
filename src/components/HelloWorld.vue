@@ -3,58 +3,11 @@
     <el-container>
       <el-header>Header</el-header>
       <el-container>
-        <el-aside width="200px">
-          <el-row class="tac">
-            <el-col>
-              <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-                <el-submenu index="1">
-                  <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>设备列表</span>
-                  </template>
-                  <el-menu-item-group>
-                    <template slot="title">分组一</template>
-                    <el-menu-item index="1-1">选项1</el-menu-item>
-                    <el-menu-item index="1-2">选项2</el-menu-item>
-                  </el-menu-item-group>
-                  <el-menu-item-group title="分组2">
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                  </el-menu-item-group>
-                  <el-submenu index="1-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="1-4-1">选项1</el-menu-item>
-                  </el-submenu>
-                </el-submenu>
-                <el-submenu index="2">
-                  <template slot="title">
-                    <i class="el-icon-menu"></i>
-                    <span slot="title">文档列表</span>
-                  </template>
-                  <el-menu-item-group>
-                    <template slot="title">分组一</template>
-                    <el-menu-item index="2-1">选项1</el-menu-item>
-                    <el-menu-item index="2-2">选项2</el-menu-item>
-                  </el-menu-item-group>
-                  <el-menu-item-group title="分组2">
-                    <el-menu-item index="2-3">选项3</el-menu-item>
-                  </el-menu-item-group>
-                  <el-submenu index="2-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="2-4-1">选项1</el-menu-item>
-                  </el-submenu>
-                </el-submenu>
-                <el-menu-item index="3">
-                  <i class="el-icon-document"></i>
-                  <span slot="title">保养信息</span>
-                </el-menu-item>
-                <el-menu-item index="4" @click="setting">
-                  <i class="el-icon-setting"></i>
-                  <span slot="title">个人中心</span>
-                </el-menu-item>
-              </el-menu>
-            </el-col>
-          </el-row>
-        </el-aside>
+        <ul>
+          <li v-for="item in links" :key="item">
+            <a @click="$goRoute(item.route)">{{item.title}}</a>
+          </li>
+        </ul>
         <el-main>
           <div>
             <div class="block">
@@ -72,23 +25,23 @@
             <el-button type="primary" @click="eqInfo" size="small">详细信息</el-button>
             <el-button type="primary" @click="docList" size="small">文档列表</el-button>
           </div>
-          <eqinfo></eqinfo>
+          <!-- <eqinfo></eqinfo> -->
         </el-main>
       </el-container>
     </el-container>
-
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import eqinfo from "./myComponents/eqInfo";
-import setting from "./setting/setting";
+// import eqinfo from "./myComponents/eqInfo";
+// import setting from "./setting/setting";
 
 export default {
-  name: "upkeep",
-  components: {
-    eqinfo,
-    setting
-  },
+  name: "HelloWorld",
+  // components: {
+  //   eqinfo,
+  //   setting
+  // },
   data() {
     return {
       currentIndex: 0,
@@ -112,6 +65,24 @@ export default {
         {
           id: 3,
           img: require("./../assets/logo.3.png")
+        }
+      ],
+      links: [
+        {
+          title: "设备列表",
+          route: "/equipmentList"
+        },
+        {
+          title: "文档列表",
+          route: "/equipmentDocList"
+        },
+        {
+          title: "保养信息",
+          route: "/upkeep"
+        },
+        {
+          title: "个人中心",
+          route: "/setting"
         }
       ]
     };
@@ -146,9 +117,6 @@ export default {
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
-    },
-    setting() {
-      this.set = !this.set;
     }
   },
   created() {

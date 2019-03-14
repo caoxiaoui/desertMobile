@@ -1,8 +1,7 @@
 {
   "returnCode": "1",
   "reason": "OK",
-  "result": [
-    {
+  "result": [{
       "equipmentId": 5,
       "parentEquipmentId": 0,
       "divisionId": 0,

@@ -1,8 +1,8 @@
 <template>
   <div class="eqInfo">
     <!-- <router-view/> -->
-    <div class="mui-page-content">
-      <div class="mui-content-padded">
+    <div class="page-content">
+      <div class="content-padded">
         <p>
           <img src="~@/assets/image/cbd.jpg" data-preview-src="" data-preview-group="1" />
         </p>
@@ -21,7 +21,7 @@
         <!-- 详细信息 -->
         <div>
           <h3 class="left">详细信息</h3>
-          <!-- <button type="button" class="mui-btn" @click="getData">获取数据</button> -->
+          <!-- <button type="button" class="btn" @click="getData">获取数据</button> -->
           <!-- <p>{{ info }}</p> -->
           <div class="info-list">
             <ul>
@@ -62,7 +62,7 @@
         <!-- 数据采集 -->
         <div>
           <h3 class="left">数据采集</h3>
-          <!-- <button type="button" class="mui-btn" @click="getData">获取数据</button> -->
+          <!-- <button type="button" class="btn" @click="getData">获取数据</button> -->
           <!-- <p>{{ info }}</p> -->
           <div class="info-list">
             <ul>
@@ -153,18 +153,18 @@ export default {
     },
     getData() {
       // this.axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      this.axios
-        .get("http://www.datachn.com/ApiServlet?method=equipmentList&id=2")
-        .then(response => {
-          this.info = response.data.result;
-          console.log(this.info);
-          this.name = this.info.equipmentName;
-          this.stats = this.info.equipmentStatusDes;
-          this.eqCode = this.info.equipmentCode;
-          this.eqModel = this.info.equipmentModel;
-          this.category = this.info.equipmentCategory;
-          this.specifications = this.info.equipmentSpecifications;
-        });
+      // this.axios
+      //   .get("http://www.datachn.com/ApiServlet?method=equipmentList&id=2")
+      //   .then(response => {
+      //     this.info = response.data.result;
+      //     console.log(this.info);
+      //     this.name = this.info.equipmentName;
+      //     this.stats = this.info.equipmentStatusDes;
+      //     this.eqCode = this.info.equipmentCode;
+      //     this.eqModel = this.info.equipmentModel;
+      //     this.category = this.info.equipmentCategory;
+      //     this.specifications = this.info.equipmentSpecifications;
+      //   });
     },
     echarts() {
       // 基于准备好的dom，初始化echarts实例
